@@ -1,13 +1,38 @@
-# E-Books epubs 
-Decrypt epub files
+# E-Books epubs protected with DRM
+What is al this encryption of books and how to decrypt epub files.
 
 
 ## What is DRM?
 Digital Rights Management or DRM is a scheme that controls access to copyrighted material using technological means. It may refer to the usage of proprietary software, hardware, or any type of content: music tracks, video files, ebooks, games, DVD movies, emails, documents, etc.
 
-An ACSM file is a message file served by the Adobe Content Server to Adobe Digital Editions, a program used to manage and read eBooks as well as other digital publications. It contains data to activate and download an eBook but does not contain the eBook itself.are Adobe DRM protected files.
+Adobe's Adept DRM is developed by Adobe and used in the Adobe DRM software Adobe Content Serve, and is applied to ePubs and PDFs, which can be read by many third-party e-book readers, as well as Adobe's Digital Editions software. The DRM uses a complex crypto system. Each book is encrypted using a per-book key, and this key is encrypted again using a per-user key and RSA with PKCS#1 v1.5 padding. The cipher used to encrypt the book content is AES in CBC mode with a random generated IV [Icabbages09a].
 
-protected ePub files can only be opened using Adobe Digital Editions (ADE) on your PC/Mac. Please follow the steps to download Adobe Digital Edition: Goto http://www.adobe.com/products/digitaleditions/ Click the install badge to download and install the latest version of Digital Editions.
+
+### The naming of the players
+Unique resource names urn:uuid 
+The distibutor has a unique id
+
+The user gets a public and private key from adobe. Users have a unique id
+
+The books are encrypted with AES in a bookkey. books are identified with a unique id number.  urn:uuid:
+
+The bookkey is encrptyted with the pub key.
+
+
+
+
+An ACSM file is a message file served by the Adobe Content Server to Adobe Digital Editions, a program used to manage and read eBooks as well as other digital publications. It contains data to activate and download an eBook but does not contain the eBook itself.
+Th ACSM file contains
+* Metainformatie of the book 
+* The Distibutor id
+* The book id
+* HMAC   keyed-hash message authentication code 
+* Transaction id
+
+
+
+protected ePub files can only be opened using Adobe Digital Editions (ADE) on your PC/Mac.  Download Adobe Digital Edition: http://www.adobe.com/products/digitaleditions/  and install the latest version of Digital Editions.
+
 
 
 ## Activation 
@@ -22,7 +47,7 @@ This information is used to unpack the xml file.
 In the XML find the tag:
 //{%s}credentials/{%s}privateLicenseKey'  this is the place where your private key is.
 
-Take the privateKey
+Take the content of the privateKey
 
 * Add '-----BEGIN PRIVATE KEY-----' 
 * Append '-----END PRIVATE KEY-----'
