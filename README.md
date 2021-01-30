@@ -5,13 +5,13 @@ Decrypt epub files
 ## What is DRM?
 Digital Rights Management or DRM is a scheme that controls access to copyrighted material using technological means. It may refer to the usage of proprietary software, hardware, or any type of content: music tracks, video files, ebooks, games, DVD movies, emails, documents, etc.
 
-ACSM files are Adobe DRM protected files.
+An ACSM file is a message file served by the Adobe Content Server to Adobe Digital Editions, a program used to manage and read eBooks as well as other digital publications. It contains data to activate and download an eBook but does not contain the eBook itself.are Adobe DRM protected files.
 
 protected ePub files can only be opened using Adobe Digital Editions (ADE) on your PC/Mac. Please follow the steps to download Adobe Digital Edition: Goto http://www.adobe.com/products/digitaleditions/ Click the install badge to download and install the latest version of Digital Editions.
 
 
 ## Activation 
-Where are my keys and activation of Adobe. 
+First find my private key this can be found in the activation file of Adobe. 
 <br>
 ˜/Library/Application Support/Adobe/Digital Editions/activation.dat 
 
